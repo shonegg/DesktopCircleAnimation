@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginTop="30dp"
+        android:text="   第一次启动会在桌面上创建一个 \'点我点我\' 的快捷方式,点击图标,进入动画场景"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="19sp" />
+
+
+</LinearLayout>
