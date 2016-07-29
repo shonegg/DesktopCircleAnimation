@@ -114,18 +114,18 @@ public class CircleAnimView extends View {
     }
 
     private void computePosition() {
-        int w = ((int) ((((double) this.getWidth())) * RATE_CIRCLE));//圆环所在区域宽度
-        int h = ((int) ((((double) this.getHeight())) * RATE_CIRCLE));//圆环所在区域高度
+        int w = ((int) ((((double) this.getWidth())) * RATE_CIRCLE));//进度环所在区域宽度
+        int h = ((int) ((((double) this.getHeight())) * RATE_CIRCLE));//进度环所在区域高度
         int diameter = w > h ? h : w;//调整圆环的直径
-        this.centerX = ((float) (this.getWidth() / 2));
-        this.centerY = ((float) (this.getHeight() / 2));
-        this.radius = ((float) (diameter / 2));//环形进度的半径
-        this.endPointRadius = ((int) ((((double) this.radius)) * RATE_RADIUS_ENDPOINT));
+        this.centerX = ((float) (this.getWidth() / 2));//中心点x
+        this.centerY = ((float) (this.getHeight() / 2));//中心点y
+        this.radius = ((float) (diameter / 2));//圆环的半径
+        this.endPointRadius = ((int) ((((double) this.radius)) * RATE_RADIUS_ENDPOINT));//小白球的半径
         this.paintWidth = ((int) ((((double) this.radius)) * RATE_RADIUS_PAINT_WIDTH));
-        this.left = this.centerX - this.radius;
-        this.right = this.centerX + this.radius;
-        this.top = this.centerY - this.radius;
-        this.bottom = this.centerY + this.radius;
+        this.left = this.centerX - this.radius;//圆环的左边距
+        this.right = this.centerX + this.radius;//圆环的右边距
+        this.top = this.centerY - this.radius;//圆环的顶边距
+        this.bottom = this.centerY + this.radius;//圆环的底边距
     }
 
     private void drawProgressBarArc(Canvas canvas) {
@@ -137,7 +137,7 @@ public class CircleAnimView extends View {
     private void drawProgressBarPoint(Canvas canvas) {
         float angle = inOpeningAnimation ? currentAngle : endAngle;
         this.endX = (float) Math.sin(Math.toRadians(angle)) * radius + centerX;
-        this.endY = (float) Math.sin(Math.toRadians(angle) - 1.570796) * radius + centerY;
+        this.endY = (float) Math.sin(Math.toRadians(angle) - Math.PI / 2) * radius + centerY;
         canvas.drawCircle(endX, endY, ((float) endPointRadius), endPointPaint);
     }
 

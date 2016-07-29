@@ -50,13 +50,13 @@ public class LauncherActivity extends Activity {
         if (intent != null && (intent.getAction().equals("com.snow.action.start"))) {
             this.overridePendingTransition(0, 0);
             this.setContentView(R.layout.activity_launcher);
-            CircleAnimView circleAnimView = (CircleAnimView) this.findViewById(R.id.one_click);
+            CircleAnimView rocketView = (CircleAnimView) this.findViewById(R.id.rocket_view);
             Rect rect = intent.getSourceBounds();//获取icon坐标信息
 
             ((RelativeLayout) this.findViewById(R.id.root)).updateViewLayout(
-                    circleAnimView, this.computeAnimationIconLayoutParams(
-                            circleAnimView, rect));
-            circleAnimView.startAnimation(360, new Animation.AnimationListener() {
+                    rocketView, this.computeAnimationIconLayoutParams(
+                            rocketView, rect));
+            rocketView.startAnimation(360, new Animation.AnimationListener() {
                 @Override
                 public void onAnimationEnd(Animation animation) {
                     finish();//动画结束,自己退出
